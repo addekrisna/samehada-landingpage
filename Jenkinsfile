@@ -24,14 +24,12 @@ pipeline {
               }
             }
         stage('Test') {
-        agent { label "agent1" }
             steps {
               //
                 script { echo "Test" }
               }
             }
         stage('Deploy') {
-        agent { label "agent1" }
             steps {
               //
                 script { echo "Testing Deploy Lagi" }
