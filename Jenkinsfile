@@ -46,10 +46,10 @@ pipeline {
                 
                 { 
                 sh "kubectl -n test-lp set image deployment/landingpage-deployment landingpage=addekrisna/landingpage:dev-$BUILD_NUMBER"
-
+                sh "docker image rmi addekrisna/landingpage:dev-$BUILD_NUMBER"
                 }else{ 
                 sh "kubectl -n test-lp set image deployment/landingpage-deployment landingpage=addekrisna/landingpage:main-$BUILD_NUMBER"
-                
+                sh "docker image rmi addekrisna/landingpage:main-$BUILD_NUMBER"
                 }
 
                 }
