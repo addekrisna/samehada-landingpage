@@ -3,6 +3,7 @@ pipeline {
     agent any
     stages {
         stage('Build') {
+          agent { label "agent1" }
             steps {
               //
                 script { echo "Build"
@@ -24,6 +25,7 @@ pipeline {
               }
             }
         stage('Test') {
+          agent { label "agent1" }
             steps {
               //
                 script { echo "Test" 
@@ -35,6 +37,7 @@ pipeline {
               }
             }
         stage('Deploy') {
+          agent { label "agent1" }
             steps {
               //
                 script { echo "Testing Deploy Lagi" }
