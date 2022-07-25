@@ -6,15 +6,15 @@ pipeline {
             steps {
               //
                 script { echo "Build"
-                if (env.BRANCH_NAME == "development")
+                if (env.BRANCH_NAME == "develop")
                 
                 { 
                 sh "docker build -t addekrisna/landingpage:dev-$BUILD_NUMBER . "
                 sh "docker push addekrisna/landingpage:dev-$BUILD_NUMBER"
 
                 }else{ 
-                sh "docker build -t addekrisna/landingpage:master-$BUILD_NUMBER . "
-                sh "docker push addekrisna/landingpage:master-$BUILD_NUMBER"
+                sh "docker build -t addekrisna/landingpage:main-$BUILD_NUMBER . "
+                sh "docker push addekrisna/landingpage:main-$BUILD_NUMBER"
                 
                 }
                 
