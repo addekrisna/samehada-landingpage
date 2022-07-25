@@ -40,7 +40,19 @@ pipeline {
           agent { label "agent1" }
             steps {
               //
-                script { echo "Testing Deploy Lagi" }
+                script { echo "Testing Deploy Lagi" 
+                
+                if (env.BRANCH_NAME == "develop")
+                
+                { 
+                sh "kubectl -n test-lp set image deployment/landingpage-deployment landingpage=addekrisna/landingpage:dev-$BUILD_NUMBER"
+
+                }else{ 
+                sh "kubectl -n test-lp set image deployment/landingpage-deployment landingpage=addekrisna/landingpage:main-$BUILD_NUMBER"
+                
+                }
+
+                }
             }
           }
         }
